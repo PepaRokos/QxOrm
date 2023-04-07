@@ -42,7 +42,9 @@ namespace qx {
 void QxFactoryX::registerFactory(const QString & sKey, IxFactory * pFactory)
 {
    QMutexLocker locker(& m_oMutexFactoryX);
-   qAssert(! sKey.isEmpty() && ! m_mapFactoryX.contains(sKey));
+   if (! sKey.isEmpty() && ! m_mapFactoryX.contains(sKey)) {
+       return;
+   }
 
    if (! pFactory || sKey.isEmpty() || m_mapFactoryX.contains(sKey))
       return;

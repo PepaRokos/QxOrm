@@ -119,7 +119,7 @@ struct QxConvertHelper_Persistable { };
 struct QxConvertHelper_Container { };
 struct QxConvertHelper_Enum { };
 
-inline bool checkConvertQVariantToString(const QVariant & v) { return ((v.type() == QVariant::List) || (v.type() == QVariant::Map) || (v.type() == QVariant::Hash) || (v.type() == QVariant::StringList)); }
+inline bool checkConvertQVariantToString(const QVariant & v) { return ((v.typeId() == QMetaType::QVariantList) || (v.typeId() == QMetaType::QVariantMap) || (v.typeId() == QMetaType::QVariantHash) || (v.typeId() == QMetaType::QStringList)); }
 
 } // namespace helper
 
